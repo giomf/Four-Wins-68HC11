@@ -6,4 +6,5 @@
 *.aux
 *.fdb_latexmk
 *.gz
+*_temp.tex
 todo.txt
