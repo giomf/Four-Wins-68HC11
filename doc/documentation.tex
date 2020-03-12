@@ -1,0 +1,33 @@
+\documentclass[numbers=noendperiod,bibliography=totoc,paper=a4,pagesize,DIV=calc,headings=small,10pt]{scrreprt}
+
+\usepackage[ngerman]{babel} % Sprachanpassungen
+\usepackage{fixltx2e} % Einige Problemfälle von LaTeX2e
+\usepackage{soul} % Zusätzliche Möglichkeiten der Textauszeichnung
+\usepackage{graphicx} % Einbindung von Graphiken
+\usepackage{listings}
+\usepackage{color}
+
+
+\pagenumbering{roman}
+%
+% Title Page
+\subject{Mikroprozessor Workshop \\ Wintersemester 2019/2020}
+\title{Vier Gewinnt auf dem \\ Motorola 68HC11 Prozessor}
+\subtitle{Benutzer- und Programmierhandbuch}
+\author{\textbf{Michael Persiehl (tinf102296)} \and \textbf{Guillaume Fournier-Mayer (tinf101922)} }
+
+\date{\today{}, Hamburg\\[3cm]
+\includegraphics[scale=0.9]{img/fh_sw_RGB600dpi.eps}}
+
+
+\pagestyle{headings}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \pagenumbering{arabic}
+  
+    \listoffigures
+    \listoftables
+    
+\end{document}
