@@ -12,7 +12,7 @@
 ; Liest das Datenbyte des Tastenfeldes (PIO_B) aus und reagiert entsprechend
 ; auf die Taste.
 ;
-; @param PIO_B: Das Signal Byte der 8 Tasten in 1 aus n Kodierung
+; @param PIO_B: Das Signal Byte der 8 Tasten in n aus 8 Kodierung
 ;-------------------------------------------------------------------------------
 
 readInput
@@ -20,7 +20,7 @@ readInput
 		pshb
 	
 		ldaa	PIO_B					; Lese Button byte ein
-		ldab	buttonFlag				; Lese ButtonfLag ein
+		ldab	buttonFlag				; Lese Button flag ein
 		
 		cmpb	#1						; 1 Wenn Taste gedrückt
 		beq		testButtonRelease
