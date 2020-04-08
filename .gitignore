@@ -7,4 +7,5 @@
 *.fdb_latexmk
 *.gz
 *_temp.tex
+*.out
 todo.txt
