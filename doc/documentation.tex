@@ -10,6 +10,74 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+
+\definecolor{listgray}{rgb}{0.88,0.88,0.88} 
+\definecolor{green}{rgb}{0,0.88,0} 
+\definecolor{blue}{rgb}{0,0,0.88} 
+
+
+
+\lstdefinelanguage{hc11}{%
+    sensitive=false,
+    morecomment=[l]{;},
+    commentstyle=\color{green},
+    keywordstyle=\color{blue},
+    % Misc
+    morekeywords={Section, switch include, equ, ds.w, ds.b},
+    % Load
+    morekeywords={LDAA, LDAB, LDD, LDX, LDY, LDS},
+    % Store
+    morekeywords={STAA, STAB, STD, STX, STY, STS},
+    % Transfer
+    morekeywords={TAB, TBA, TAP, TPA, TSX, TXS, TSY, TYS},
+    % Exchange
+    morekeywords={XGDX, XGDY},
+    % Clear
+    morekeywords={CLR, CLRA, CLRB},
+    % Add & Sub
+    morekeywords={ABA, ADDA, ADDB, ADDD, ABX, ABY, SUBA, SUBB, SUBD, ADCA, ADCB, SBCA, SBCB},
+    % Mul & Div
+    morekeywords={MUL, FDIV, IDIV},
+    % Logic
+    morekeywords={ANDA, ANDB, ORAA, ORAB, EORA, EORB},
+    % Compare
+    morekeywords={CBA, CMPA, CMPB, CPD, CPX, CPY},
+    % 0 Test
+    morekeywords={TST, TSTA, TSTB},
+    % Jumps
+    morekeywords={BRA, JMP, BEQ, BNE, BCC, BCS, BMI, BPL,BVS, BVC, BGT, BGE, BEQ, BLE, BLT, BHI, BHS, BEQ, BLS, BLO, BRCLR, BRSET},
+    % Subroutines
+    morekeywords={BSR, JSR, RTS},
+    % Stack
+    morekeywords={PSHA, PSHB, PSHX, PSHY, PULA, PULB, PULX, PULY}
+}
+
+\lstset{
+    literate=%
+        {Ö}{{\"O}}1
+        {Ä}{{\"A}}1
+        {Ü}{{\"U}}1
+        {ß}{{\ss}}1
+        {ü}{{\"u}}1
+        {ä}{{\"a}}1
+        {ö}{{\"o}}1,
+    backgroundcolor=\color{listgray},
+    breaklines=false,
+    %columns=felxibile,
+    breakatwhitespace=true, 
+    keepspaces=true,
+    numbers=left,
+    tabsize=4,
+    linewidth=1.2\textwidth,
+    language=hc11,
+    %xleftmargin=.2\textwidth,
+    %xrightmargin=.2\textwidth,
+    frame=tb,
+    basicstyle=\ttfamily\footnotesize\bfseries
+}
+
+
 
 
 \pagenumbering{roman}
@@ -33,6 +101,7 @@
 
     \input{tex/Benutzerhandbuch/Benutzerhandbuch.tex}
     \input{tex/Programmiererhandbuch/Programmiererhandbuch.tex}
+    \input{tex/Listening/Listening.tex}
 
     \listoffigures
     \listoftables

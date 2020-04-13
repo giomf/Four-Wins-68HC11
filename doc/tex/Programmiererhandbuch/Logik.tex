@@ -8,9 +8,16 @@
         Da das Spielfeld im Buffer Zeilenweise hintereinander weg verläuft, also alle 42 Zellen hintereinander liegen,
         aber auf dem Display die Zeilen untereinander angeordnet sind, müssen die Koordinaten umgerechnet werden können.
         \\
-        Zum umrechnen einer Spielfeldkoordinate wird die Spaltenzahl (1 – 7) mit 8 multipliziert und mit der Zeilenzahl (1 – 6) multipliziert mit 56 addiert.
-        Also bei einer Spielfeldkoordinate bei Spalte 3 und Zeile 2 währe die Berechnung folgende: (3 * 8) + (2 * 56) = 136.
+        Zum umrechnen einer Spielfeldkoordinate wird folgende Formel verwendet:
+        \begin{align}
+            Addresse = (Spalte \cdot 8) + (Zeile \cdot 56)
+        \end{align}
         Die Multiplikatoren ergeben sich aus einer Zellenhöhe von 8 für die Zeilenzahl und aus einer Zellenbreite von 8 bei 7 Zellen pro Zeile = 56.
+        Also bei einer Spielfeldkoordinate bei Spalte 3 und Zeile 2 währe die Berechnung folgende:
+        \begin{align}
+            136 = (3 \cdot 8) + (2 \cdot 56) 
+        \end{align}
+        
 
     \subsection{Prüfen des Zelleninhalts}
         Um Feststellen zu können ob ein Spieler eine zusammenhängende Steinfolge besitzt,

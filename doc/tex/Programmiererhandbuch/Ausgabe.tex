@@ -1,0 +1,52 @@
+\newpage
+\section{Ausgabe}
+    In diesem Kapitel wird erläutert wie die Ausgabe auf dem LCD realisiert wurde.
+    Dabei werden die eigenheiten des Displays und die representation von Text innerhalb des Speichers erklärt.
+
+    \subsection{LCD}
+        Als Display steht dem Board ein \textit{NHD-C12864A1Z-FSW-FBW-HTT} zur Verfügung.
+        Dieses besitzt 128 x 64 Pixel. Da der Cursor jedoch 8 Pixel hoch ist,
+        bildet das LCD 128 Spalten und acht Zeilen ab.
+
+    \subsection{Spielfeld}
+        Um das Spielfeld zu zentrieren wird auf jede horizontale Berechnung die Konstante 
+        \textit{boardOffset} addiert.\\
+        Diese berechnet sich aus folgender Formel:
+        \begin{equation}
+            boardOffset = \dfrac{Displaybreite}{2} - \dfrac{Spielfeldbreite}{2}
+        \end{equation}
+        Konkret bedeutet das:
+        \begin{equation}
+            36 = \dfrac{128 Pixel}{2} - \dfrac{7 Zeilen \cdot 8 Pixel}{2}
+        \end{equation}
+        
+
+    \subsection{Text}
+        Da kein dynamischer Text für die Ausgabe benötigt wird, wird jeglicher Text aus dem Speicher 
+        ausgelesen.
+        \\
+        Dabei besteht ein Buchstabe aus zwei bis vier Bytes. Zusätzlich wird ein Leerzeichen,
+        in Form eines leeren Bytes, an das Ende des Buchstaben angefügt.
+        \\\\
+        Somit ergibt sich Beispielsweise folgende Bytefolge für den Buchstaben \textit{T}:
+        \begin{center}
+            \texttt{\$02,\$7E,\$02,\$00}    
+        \end{center}
+        Um nun eine Buchstabenfolge als Text auszugeben, wird die Länge dieser im ersten Byte gespeichert.
+        Somit ist es möglich, in einer Schleife eine Buchstabenfolge auszugeben, ohne den dahinter liegenden
+        Speicher mit auszulesen. Alternativ könnte hier auch ein Stopbyte verwendet werden.
+        Dies hätte den Vorteil, dass auch Texte, die länger als 254 Zeichen lang sind, Ausgegeben werden können.
+        \\
+        Die folgende Tabelle zeigt die Kodierung mit dem Beispieltext \textit{Player}:
+        \begin{center}
+            \begin{tabular}{c | l}
+                P: & \texttt{30,\$7E,\$12,\$12,\$0C,\$00}\\
+                l: & \texttt{\$02,\$7E,\$00} \\
+                a: & \texttt{\$20,\$54,\$54,\$78,\$00}\\ 
+                y: & \texttt{\$1C,\$A0,\$A0,\$7C,\$00}\\ 
+                e: & \texttt{\$38,\$54,\$54,\$48,\$00}\\ 
+                r: & \texttt{\$7C,\$08,\$04,\$08,\$00}\\
+                 : & \texttt{\$00,\$00}
+            \end{tabular}
+        \end{center}
+      
