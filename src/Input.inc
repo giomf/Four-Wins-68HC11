@@ -12,7 +12,7 @@
 ; Liest das Datenbyte des Tastenfeldes (PIO_B) aus und reagiert entsprechend
 ; auf die Taste.
 ;
-; @param PIO_B: Das Signal Byte der 8 Tasten in n aus 8 Kodierung
+; @param PIO_B: Das Signal Byte der 8 Tasten in 1 aus n Kodierung
 ;-------------------------------------------------------------------------------
 
 readInput
@@ -20,12 +20,13 @@ readInput
 		pshb
 	
 		ldaa	PIO_B					; Lese Button byte ein
-		ldab	buttonFlag				; Lese Button flag ein
+		ldab	buttonFlag				; Lese ButtonfLag ein
 		
 		cmpb	#1						; 1 Wenn Taste gedrückt
 		beq		testButtonRelease
 		
-button4									; Wenn Taste 4 gedrückt, reset des Spiels
+button4									; Wenn Taste 4 gedrückt, reset 
+										; des Spiels
 		cmpa	#%11101111 
 		bne		button0
 		jsr		setButtonFlag
@@ -33,7 +34,8 @@ button4									; Wenn Taste 4 gedrückt, reset des Spiels
 		bra		readInputEnd
 		
 button0									; Wenn Taste 0 gedrückt, setze Stein 
-		tst		playerWonFlag			; alle Tasten ausser reset sperren wenn das Spiel gewonnen ist
+		tst		playerWonFlag			; alle Tasten ausser reset sperren wenn 
+										; das Spiel gewonnen ist
 		bne		readInputEnd
 		
 		cmpa	#%11111110
@@ -41,7 +43,9 @@ button0									; Wenn Taste 0 gedrückt, setze Stein
 		jsr		setButtonFlag
 		jsr		setStone
 		
-		ldab	coordy					; testen ob ein Stein gesetzt werden konnte, wenn nicht KEIN Spielerwechsel / checkWin
+		ldab	coordy					; testen ob ein Stein gesetzt werden 
+										; konnte, wenn nicht KEIN 
+										; Spielerwechsel / checkWin
 		cmpb	#$FF
 		beq		readInputEnd
 		
@@ -54,13 +58,15 @@ button0									; Wenn Taste 0 gedrückt, setze Stein
 		
 		bra		readInputEnd		
 		
-button1									; Wenn Taste 1 gedrückt, setze Flag und bewege Cursor nach Links
+button1									; Wenn Taste 1 gedrückt, setze Flag 
+										; und bewege Cursor nach Links
 		cmpa	#%11111101
 		bne		button3
 		jsr		setButtonFlag
 		jsr		moveCursorLeft
 		bra		readInputEnd
-button3									; Wenn Taste 3 gedrückt, setze Flag und bewege Cursor nach Rechts
+button3									; Wenn Taste 3 gedrückt, setze Flag 
+										; und bewege Cursor nach Rechts
 		cmpa	#%11110111 
 		bne		readInputEnd
 		jsr		setButtonFlag
@@ -75,7 +81,8 @@ testButtonRelease
 		bne		readInputEnd
 		jsr		resetTimer
 		
-		cmpa	#%11111111				; Überprüfe ob Taste losgelassen wurde -> Reset Buttonflag
+		cmpa	#%11111111				; Überprüfe ob Taste losgelassen 
+										; wurde -> Reset Buttonflag
 		bne		readInputEnd
 		jsr		resetButtonFlag
 		

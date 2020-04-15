@@ -29,15 +29,16 @@ resetCursor
 		rts
 		
 		
-;---------------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------
 ; moveCursorLeft:
 ;
 ; Bewegt den Cursor um eine Spalte nach links, bei der äußerst linken 
 ; Spalte wird der Cursor nach ganz rechts gesetzt.
 ; 
 ; @param cursorColumn: Die aktuelle Cursorposition
-; @return cursorColumn: Die neue Cursorposition um eine Zelle nach links geschoben
-;---------------------------------------------------------------------------------------
+; @return cursorColumn: Die neue Cursorposition um eine Zelle nach links 
+;						geschoben
+;-------------------------------------------------------------------------------
 
 moveCursorLeft
 		psha
@@ -67,15 +68,16 @@ endMoveCursorLeft
 		rts
 		
 		
-;---------------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------
 ; moveCursorRight:
 ;
 ; Bewegt den Cursor um eine Spalte nach rechts, bei der äußerst rechten 
 ; Spalte wird der Cursor nach ganz links gesetzt.
 ; 
 ; @param cursorColumn: Die aktuelle Cursorposition
-; @return cursorColumn: Die neue Cursorposition um eine Zelle nach rechts geschoben
-;---------------------------------------------------------------------------------------
+; @return cursorColumn: Die neue Cursorposition um eine Zelle nach rechts 
+;						geschoben
+;-------------------------------------------------------------------------------
 
 moveCursorRight
 		psha

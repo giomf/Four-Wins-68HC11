@@ -7,9 +7,9 @@
 ;-------------------------------------------------------------------------------		
 		
 
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 ;   Vier Bits - ein Nibble - aus B als Hexadezimalzahl ausgeben
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 
 nibbletohex		dc.b	"0123456789ABCDEF"
 
@@ -29,9 +29,9 @@ putNibble     pshy
               puly
               rts
 
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 ;   Inhalt von B als Hexadezimalzahl ausgeben
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 
 putByte       pshb
 
@@ -46,9 +46,9 @@ putByte       pshb
               jsr putNibble      ; Unteres Nibble von B ausgeben
               rts
 
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 ;   Inhalt von D als Hexadezimalzahl ausgeben
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 
 putHex        psha
               ldaa #'$'
@@ -60,14 +60,15 @@ putHex        psha
               jsr putByte
               pulb
 
-              jsr putByte        ; Anschliessend B ausgeben, den unteren Teil von D
+              jsr putByte        ; Anschliessend B ausgeben, den unteren 
+								 ; Teil von D
 
               jsr space
               rts
               
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 ;   Inhalt von D als Hexadezimalzahl ausgeben
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 
 putHexBuffer
 				pshb
@@ -75,15 +76,16 @@ putHexBuffer
 				jsr putByte
 				pulb
 				
-				jsr putByte        ; Anschliessend B ausgeben, den unteren Teil von D
+				jsr putByte        ; Anschliessend B ausgeben, den unteren 
+								   ; Teil von D
 
 				jsr space
 				rts
              
 
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 ;   Carry-Flag als Binaerzahl ausgeben
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 
 putCarry      psha
 
@@ -99,9 +101,9 @@ putCAusgabe   jsr putChar
               pula
               rts
 
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 ;   Wert in A als Binaerzahl ausgeben
-; -----------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
 
 putBinary     psha
               ldaa #'%'
@@ -134,7 +136,8 @@ putBinary     psha
               rts
 
 ; -----------------------------------------------------------------------------
-;   Alle Register ausgeben, dabei nichts veraendern, auch die Flags bleiben erhalten
+;   Alle Register ausgeben, dabei nichts veraendern, auch die Flags 
+;	bleiben erhalten
 ; -----------------------------------------------------------------------------
 
 debug       ; Alter PC             (Stackpointer + 7)
@@ -213,7 +216,9 @@ debug       ; Alter PC             (Stackpointer + 7)
               jsr putChar
 
               tsx                ; Nochmal den Stackpointer in X holen
-              ldaa 0,x           ; Die auf dem Stack gesicherten Flags in A laden
+              ldaa 0,x           ; Die auf dem Stack gesicherten Flags 
+								 ; in A laden
+								 
               jsr putBinary
 
               ; -----------------------------------------------
@@ -226,7 +231,8 @@ debug       ; Alter PC             (Stackpointer + 7)
               pulb
               pulx
               puly               ; Alle Register wiederhergestellt.
-              rts                ; Nach dem Ruecksprung ist auch der Stackpointer wieder wie vorher.
+              rts                ; Nach dem Ruecksprung ist auch der 
+								 ; Stackpointer wieder wie vorher.
               
               
 ;-------------------------------------------------------------------------------
