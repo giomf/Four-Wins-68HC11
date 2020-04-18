@@ -8,4 +8,5 @@
 *.gz
 *_temp.tex
 *.out
+__*
 todo.txt
