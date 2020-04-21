@@ -1,7 +1,7 @@
 \newpage
 \section{Ausgabe}
-    In diesem Kapitel wird erläutert wie die Ausgabe auf dem LCD realisiert wurde.
-    Dabei werden die eigenheiten des Displays und die representation von Text innerhalb des Speichers erklärt.
+    In diesem Kapitel wird erläutert, wie die Ausgabe auf dem LCD realisiert wurde.
+    Dabei werden die Eigenheiten des Displays und die Repräsentation von Text innerhalb des Speichers erklärt.
 
     \subsection{LCD}
         Als Display steht dem Board ein \textit{NHD-C12864A1Z-FSW-FBW-HTT} zur Verfügung.
@@ -32,7 +32,7 @@
         \begin{center}
             \texttt{\$02,\$7E,\$02,\$00}    
         \end{center}
-        Um nun eine Buchstabenfolge als Text auszugeben, wird die Länge dieser im ersten Byte gespeichert.
+        Um nun eine Buchstabenfolge als Text auszugeben, wird die Länge im ersten Byte gespeichert.
         Somit ist es möglich, in einer Schleife eine Buchstabenfolge auszugeben, ohne den dahinter liegenden
         Speicher mit auszulesen. Alternativ könnte hier auch ein Stopbyte verwendet werden.
         Dies hätte den Vorteil, dass auch Texte, die länger als 254 Zeichen lang sind, Ausgegeben werden können.

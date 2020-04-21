@@ -1,7 +1,7 @@
 \newpage
 \section{Logik}
     In dem folgenden Abschnitt wird die Spiellogik bzw. die genutzten Algorithmen im Detail erläutert.
-    Darunter fallen Unterprogramme zur Adressberechnung, zum Prüfen ob eine Zelle leer ist, zum Spielerwechsel,
+    Darunter fallen Unterprogramme zur Adressberechnung, zum Prüfen, ob eine Zelle leer ist, zum Spielerwechsel,
     zum Feststellen der Länge einer Steinfolge sowie zum Feststellen des Spielendes.
 
     \subsection{Umrechnung der Boardadresse in eine Bufferadresse}
@@ -20,15 +20,15 @@
         
 
     \subsection{Prüfen des Zelleninhalts}
-        Um Feststellen zu können ob ein Spieler eine zusammenhängende Steinfolge besitzt,
-        muss es nicht nur möglich sein zu erkennen ob eine Zelle leer oder belegt ist,
+        Um feststellen zu können, ob ein Spieler eine zusammenhängende Steinfolge besitzt,
+        muss es nicht nur möglich sein zu erkennen, ob eine Zelle leer oder belegt ist,
         sondern ebenfalls von welchem Spieler ein Stein ist.
         \\
         Dazu wird erst im 3. Byte der Zelle (der Rand eines eventuellen Spielsteins für beide Varianten)
-        geprüft ob nur Nullen (leere Zelle) oder auch Einsen (ein Spielstein von Spieler 1 oder Spieler 2) vorhanden sind.
+        geprüft, ob nur Nullen (leere Zelle) oder auch Einsen (ein Spielstein von Spieler 1 oder Spieler 2) vorhanden sind.
         \\
         Wenn ein Spielstein gefunden wurde,
-        wird danach geprüft ob in der Mitte des Steins Einsen vorhanden sind (ausgefüllter Spielstein) oder nicht (innen leer)
+        wird danach geprüft, ob in der Mitte des Steins Einsen vorhanden sind (ausgefüllter Spielstein) oder nicht (innen leer)
         um ihn einem Spieler zuzuordnen.
 
         \begin{figure}[H]
@@ -52,7 +52,7 @@
         Da der Zustand eines gewonnenen Spiels nur direkt nach dem setzen eines Steins vorkommen kann,
         wird direkt nach jedem Zug darauf geprüft.
         \\
-        Um Festzustellen wie viele Steine zusammenhängend vom gleichen Spieler sind,
+        Um festzustellen wie viele Steine zusammenhängend vom gleichen Spieler sind,
         werden immer von dem neu gelegten Stein zwei gegenüberliegende Seiten geprüft.
         Um die Gesamtzahl zu bestimmen muss am Ende noch eins abgezogen werden,
         damit der neu gelegte Stein nicht doppelt gezählt wird.
@@ -60,7 +60,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.3]{img/gewinnbedingung.png}    
-            \caption{Zusammenhängend Steine}
+            \caption{Zusammenhängende Steine}
         \end{figure}
 
         Eine Ausnahme bilden die Richtungen oben und unten.
