@@ -69,4 +69,8 @@
         Wenn bei dem Zählen der zusammenhängenden Steine mehr als vier erkannt werden,
         bedeutet dies das Spielende und es wird die Variable \textit{playerWonFlag} auf 1 gesetzt um anschließend weitere Spielzüge zu sperren.
 
+    \subsection{Main Loop}
+        In dem \textit{MainLoop} wird per Schleife ständig das Datenbyte der Tasten ausgelesen.
+        Dieses polling wird durch den konstanten Aufruf des Unterprogramms \textit{readInput} realisiert (siehe Kapitel \ref{cha:input}).
+        Solange keine Taste betätigt ist, wird der Rest des Unterprogramms übersprungen und nur das Auslesen des Datenbytes durchgeführt.
       
