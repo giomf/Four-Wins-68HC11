@@ -100,13 +100,15 @@
 
 \begin{document}
     \maketitle
+    \addtocontents{toc}{\protect\thispagestyle{empty}}
     \tableofcontents
+    \thispagestyle{empty}
+    \newpage
     \pagenumbering{arabic}
-
+    \setcounter{page}{1}
     \input{tex/Benutzerhandbuch/Benutzerhandbuch.tex}
     \input{tex/Programmiererhandbuch/Programmiererhandbuch.tex}
     \input{tex/Listening/Listening.tex}
-
     \listoffigures
     \listoftables
     
